@@ -1,5 +1,5 @@
 {
-    "android_icon": "/res/icon/sky-stream.png",
+    "android_icon": "/res/icon/skystream.png",
     "android_name": "Sky Stream",
     "android_handler": "skystream.aiix.home"
 }
