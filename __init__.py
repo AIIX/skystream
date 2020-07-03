@@ -13,7 +13,7 @@ class SkyStream(MycroftSkill):
 
     def initialize(self):
         LOG.info("Initialized")
-        self.bus.on('skystream.aiix.home', self.launcher_id)
+        self.bus.on('skystream.aiix.home', self.play_sky_live_stream)
 
     # Create an intent for playing Sky News Live Stream
     # Lets use a intent file to be able to call this function
@@ -33,6 +33,8 @@ class SkyStream(MycroftSkill):
     
     @intent_file_handler("play_sky_live_stream.intent")
     def play_sky_live_stream(self, message):
+        self.gui.clear()
+        self.enclosure.display_manager.remove_active()
         # Get the URL of where the live stream is playing
         set_url = "https://skynews2-plutolive-vo.akamaized.net/cdhlsskynewsamericas/1013/latest.m3u8?serverSideAds=true"
         # Sending the stream to my GUI, creating a sessionData object
